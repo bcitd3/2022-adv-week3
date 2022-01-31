@@ -2,7 +2,8 @@ import {useContext, createContext, useState} from 'react';
 
 //the variables you want to provide to all the pages/components wrapped around this provider
 const initialStates = {
-
+    fav:{},
+    setFav:()=>{}
 }
 
 const MyContext = createContext(initialStates);
@@ -17,3 +18,5 @@ export default function AppProvider({children}){
 }
 
 //use the Context to create Hooks like useTheme
+export function useFav(){
+}
