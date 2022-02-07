@@ -9,8 +9,11 @@
   },
   "dependencies": {
     "axios": "^0.24.0",
-    "next": "12.0.7",
+    "next": "^12.0.10",
     "react": "17.0.2",
+    "react-dnd": "^15.1.0",
+    "react-dnd-html5-backend": "^15.1.1",
+    "react-dnd-touch-backend": "^15.1.0",
     "react-dom": "17.0.2",
     "sass": "^1.47.0",
     "semantic-ui-css": "^2.4.1",
