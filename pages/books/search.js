@@ -1,9 +1,13 @@
 import Head from 'next/head'
 import ax from 'axios';
 
-import {useState} from 'react';
+import React, {useState} from 'react';
 import { useRouter } from 'next/router';
 import { v4 as uuidv4 } from 'uuid';
+
+import { TouchBackend } from 'react-dnd-touch-backend'
+//import { HTML5Backend } from 'react-dnd-html5-backend'
+import { DndProvider } from 'react-dnd'
 
 var timer = null;
 export default function Search() {
@@ -52,10 +56,16 @@ export default function Search() {
       <button onClick={()=>setSBRType(sbr_type === "asc" ? "desc" : "asc")}>
         {sbr_type === "asc"  ? "Ascending" : "Descending"}
       </button>
-
-      {data.map((o,i)=><div>
-        {o.title} - {o.average_rating}
-      </div>)}
+      <DndProvider backend={TouchBackend} options={{
+				enableTouchEvents:false,
+				enableMouseEvents:true
+			}}>
+          {data.map((o,i)=>{
+            return <div key={i}>
+              {o.title} - {o.average_rating}
+            </div>
+          })}
+			</DndProvider>
     </div>
   )
 }
